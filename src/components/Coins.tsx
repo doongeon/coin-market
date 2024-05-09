@@ -23,16 +23,15 @@ const CoinConatainer = styled.div`
     height: 100%;
     padding: 0 20px;
     max-width: 350px;
-    border: 1px solid ${(props) => props.theme.ringColor};
+    background-color: ${(props) => props.theme.cardColor};
     border-radius: 15px;
     display: flex;
     gap: 15px;
     align-items: center;
     box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.2);
-    transition: linear 0.5s;
+    transition: linear 0.3s;
     &:hover {
       background-color: ${(props) => props.theme.ringColor};
-      color: white;
     }
   }
 `;
@@ -43,8 +42,6 @@ export default function Coins() {
     error,
     data: coins,
   } = useQuery<Cryptocurrency[]>({ queryKey: ["coins"], queryFn: fetchCoins });
-
-  console.log(error);
 
   return (
     <CoinList>
