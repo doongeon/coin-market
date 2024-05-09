@@ -1,4 +1,4 @@
-import Coins from "../components/coin-section";
+import Coins from "../components/Coins";
 import Title from "../components/Logo";
 
 export default function Home() {

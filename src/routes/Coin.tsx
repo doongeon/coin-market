@@ -17,8 +17,6 @@ export default function Coin() {
     queryFn: () => fetchCoin(coinId),
   });
 
-  console.log(error);
-
   return (
     <>
       <Title />
@@ -29,7 +27,7 @@ export default function Coin() {
       ) : (
         <div>없어요</div>
       )}
-      <Button to="/" text="홈으로" />
+      <Button to="/" text="홈" />
     </>
   );
 }
