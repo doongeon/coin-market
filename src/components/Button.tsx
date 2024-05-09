@@ -7,19 +7,19 @@ interface ButtonProps {
   text: string;
 }
 
-const ButtonContainer = styled.button`
+const ButtonContainer = styled.div`
   width: 100%;
+  max-width: 170px;
   height: 35px;
-  max-width: 400px;
-  color: white;
+  color: ${(props) => props.theme.bg};
+  background-color: ${(props) => props.theme.ringColor};
   border-radius: 15px;
   font-size: 14px;
-  background-color: ${(props) => props.theme.cardColor};
   display: flex;
   align-items: center;
   justify-content: center;
   &:hover {
-    background-color: ${(props) => props.theme.hoverColor};
+    opacity: 0.8;
   }
   & > a {
     display: block;

@@ -3,19 +3,18 @@ type Theme = {
   textColor: string;
   ringColor: string;
   cardColor: string;
-}
+};
 
 export const lightTheme: Theme = {
- bg: "white",
- textColor: "black",
- ringColor: "#4E4FEB",
- cardColor: "#332FD0",
-}
+  bg: "white",
+  textColor: "#1E2329",
+  ringColor: "#FCD535",
+  cardColor: "#FAFAFA",
+};
 
 export const darkTheme: Theme = {
-  bg: "#071952",
-  textColor: "white",
-  ringColor: "#97FEED",
-  cardColor: "#0B666A",
- }
-
+  bg: "#181A20",
+  textColor: "#EAECEF",
+  ringColor: "#FCD535",
+  cardColor: "#1E2329",
+};
