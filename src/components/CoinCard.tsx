@@ -14,7 +14,7 @@ const CoinCardContainer = styled.div`
   padding: 0 10px;
   padding-bottom: 5vh;
   max-width: 600px;
-  border: 2px solid ${(props) => props.theme.ringColor};
+  background-color: ${(props) => props.theme.cardColor};
   border-radius: 15px;
   position: relative;
   display: flex;
@@ -31,7 +31,7 @@ export default function CoinCard({ coin }: CoinCardProps) {
         open_source={coin?.open_source}
       />
       <CoinDescription description={coin?.description} />
-      <CoinMarket />
+      <CoinMarket coinId={coin.id} />
     </CoinCardContainer>
   );
 }

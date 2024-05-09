@@ -13,7 +13,7 @@ const CoinDescriptionContainer = styled.p`
   flex-direction: column;
   gap: 15px;
   > h3 {
-    font-size: large;
+    font-size: x-large;
     font-weight: bolder;
   }
 `;
@@ -23,7 +23,7 @@ export default function CoinDescription({ description }: CoinDescriptionProps) {
     <CoinDescriptionContainer>
       {description !== "" ? (
         <>
-          <h3>Description</h3>
+          <h3>코인 정보</h3>
           <p>{description}</p>
         </>
       ) : (

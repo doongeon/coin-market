@@ -20,7 +20,7 @@ const CardTitle = styled.h2`
   display: flex;
   justify-content: center;
   align-items: end;
-  font-size: 24px;
+  font-size: xx-large;
   font-weight: bold;
 `;
 
