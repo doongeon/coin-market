@@ -1,14 +1,16 @@
 import styled from "styled-components";
-import ApexCharts from "apexcharts";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoinMarket } from "../utils/api";
-import { useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import Chart from "./Chart";
+import Button from "./Button";
+import CandleChart from "./Candles";
 
 interface CoinMarketProps {
   coinId: string;
 }
 
-interface Candle {
+export interface Candle {
   time_open: number;
   time_close: number;
   open: string;
@@ -39,85 +41,54 @@ const CoinMarketContainer = styled.div`
   }
 `;
 
+const ChartContainer = styled.div`
+  div {
+    text-align: center;
+  }
+`;
+
 export default function CoinMarket({ coinId }: CoinMarketProps) {
   const {
     isPending,
     error,
     data: candles,
   } = useQuery<Candle[]>({
-    queryKey: ["fetchCoinMarket"],
+    queryKey: ["fetchCoinMarket", coinId],
     queryFn: () => fetchCoinMarket(coinId),
   });
-
-  useEffect(() => {
-    if (!isPending) {
-      const options = {
-        chart: {
-          type: "line",
-        },
-        series: [
-          {
-            name: "price",
-            data: candles?.map((candle) => candle.high),
-          },
-        ],
-        xaxis: {
-          
-        },
-        fill: {
-          type: "gradient",
-
-          gradient: {
-            shade: "dark",
-            type: "horizontal",
-            shadeIntensity: 0.5,
-            gradientToColors: undefined,
-            inverseColors: true,
-            opacityFrom: 1,
-            opacityTo: 1,
-            stops: [0, 50, 100],
-            colorStops: [
-              {
-                offset: 0,
-                color: "#EB656F",
-                opacity: 1,
-              },
-              {
-                offset: 20,
-                color: "#FAD375",
-                opacity: 1,
-              },
-              {
-                offset: 60,
-                color: "#61DBC3",
-                opacity: 1,
-              },
-              {
-                offset: 100,
-                color: "#95DA74",
-                opacity: 1,
-              },
-            ],
-          },
-        },
-        grid: {
-          show: false,
-        },
-      };
-
-      const chart = new ApexCharts(document.querySelector("#chart"), options);
-
-      chart.render();
-    }
-  }, [candles]);
 
   return (
     <>
       <CoinMarketContainer>
-        <span>차트</span>
-        <span>호가</span>
+        <Button to={`/coin/${coinId}/chart`} text="라인" />
+        <Button to={`/coin/${coinId}/candles`} text="캔들" />
       </CoinMarketContainer>
-      <div id="chart"></div>
+      <ChartContainer>
+        <Switch>
+          <Route path={`/coin/${coinId}/chart`}>
+            {isPending ? (
+              <div>로딩중</div>
+            ) : Array.isArray(candles) ? (
+              <Chart coinId={coinId} isPending={isPending} candles={candles} />
+            ) : (
+              <div>자료가 없어요...</div>
+            )}
+          </Route>
+          <Route path={`/coin/${coinId}/candles`}>
+            {isPending ? (
+              <div>로딩중</div>
+            ) : Array.isArray(candles) ? (
+              <CandleChart
+                coinId={coinId}
+                isPending={isPending}
+                candles={candles}
+              />
+            ) : (
+              <div>자료가 없어요...</div>
+            )}
+          </Route>
+        </Switch>
+      </ChartContainer>
     </>
   );
 }

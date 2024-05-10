@@ -1,4 +1,4 @@
-export const BASE_URL_GET_COIN = "https://api.coinpaprika.com/v1/coins";
+export const BASE_URL_GET_COIN = "https://api.coinpaprika.com/v1";
 
 export const BASE_URL_GET_COIN_MARKET =
   "https://ohlcv-api.nomadcoders.workers.dev";
