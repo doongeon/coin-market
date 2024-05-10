@@ -10,10 +10,9 @@ export default function Coin() {
   const { coinId } = useParams<{ coinId: string }>();
   const {
     isPending,
-    error,
     data: coin,
   } = useQuery<CryptocurrencyDetail>({
-    queryKey: ["fetchCoinById"],
+    queryKey: ["fetchCoinById", coinId],
     queryFn: () => fetchCoin(coinId),
   });
 
