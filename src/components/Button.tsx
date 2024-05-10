@@ -18,6 +18,8 @@ const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: linear 0.5s;
+
   &:hover {
     opacity: 0.8;
   }

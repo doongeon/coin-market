@@ -4,6 +4,7 @@ import CoinDescription from "./coin-card-description";
 import CoinHeader from "./coin-card-header";
 import CoinMarket from "./coin-card-market-section";
 import { CryptocurrencyDetail } from "../utils/types";
+import CoinPrice from "./coin-card-price";
 
 interface CoinCardProps {
   coin: CryptocurrencyDetail;
@@ -12,7 +13,7 @@ interface CoinCardProps {
 const CoinCardContainer = styled.div`
   width: 95%;
   padding: 0 10px;
-  padding-bottom: 5vh;
+  padding-bottom: 25px;
   max-width: 600px;
   background-color: ${(props) => props.theme.cardColor};
   border-radius: 15px;
@@ -20,6 +21,7 @@ const CoinCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+  transition: linear 0.5s;
 `;
 export default function CoinCard({ coin }: CoinCardProps) {
   return (
@@ -31,6 +33,7 @@ export default function CoinCard({ coin }: CoinCardProps) {
         open_source={coin?.open_source}
       />
       <CoinDescription description={coin?.description} />
+      <CoinPrice coinId={coin.id} />
       <CoinMarket coinId={coin.id} />
     </CoinCardContainer>
   );

@@ -19,6 +19,7 @@ const CoinInfoContainer = styled.div`
   border: 2px solid ${(props) => props.theme.ringColor};
   border-radius: 10px;
   overflow: hidden;
+  transition: linear 0.5s;
   & > div {
     width: 33%;
     display: flex;
@@ -29,6 +30,7 @@ const CoinInfoContainer = styled.div`
     text-align: center;
     padding: 10px 0px;
     font-size: 16px;
+
     & > span:first-child {
       height: 30px;
       display: flex;

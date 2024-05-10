@@ -15,13 +15,13 @@ const IconContainer = styled.div`
 `;
 
 const CardTitle = styled.h2`
-  padding-top: 10px;
-  height: 60px;
+  padding-top: 40px;
   display: flex;
   justify-content: center;
   align-items: end;
   font-size: xx-large;
   font-weight: bold;
+  text-align: center;
 `;
 
 export default function CoinHeader({ coinSymbol, coinName }: CoinHeaderProps) {

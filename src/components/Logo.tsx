@@ -8,6 +8,7 @@ const TitleContainer = styled.h1`
   font-size: 3.5rem;
   color: ${(props) => props.theme.ringColor};
   font-weight: 600;
+  transition: linear 0.5s;
 `;
 
 export default function Title() {
