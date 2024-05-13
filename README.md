@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## 프로젝트 홈페이지: https://doongeon.github.io/coin-market
+
 ## Available Scripts
 
 In the project directory, you can run:
